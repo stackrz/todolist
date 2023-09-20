@@ -1,0 +1,16 @@
+dir structue
+todo folder 
+npm integrity
+-client 
+-server
+
+express.static(root, [options])
+to serve up express from a required directory in server index.js 
+computer ip address/root path on 
+
+URI path + /
+
+file system path = client folder
+
+
+
