@@ -5,15 +5,15 @@ function addInput(content) {
     addedItem = document.createElement('li');
     addedItem.append(content);
     todoApp.appendChild(addedItem);
-};
+}
 
 function getInputValue() {
   return  document.querySelector ('input').value
-};
+}
 
 function clearInput() {
     document.querySelector('input').value = ''
-};
+}
 
 document.querySelector('button').addEventListener('click', (e) => {
     e.preventDefault(); 
@@ -25,7 +25,7 @@ document.getElementById('li').target.style.textDecoration = 'line-through dotted
 
 
 todoApp.addEventListener('click', (e) => {
-    if (e.target.style.textDecoration == 'line-through') {
+  if (e.target.style.textDecoration == 'line-through') {
       e.target.style.remove.textDecoration = 'none'
   } else {
     e.target.style.textDecoration = 'line-through'
