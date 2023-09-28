@@ -1,5 +1,8 @@
 //PERSISTANCE
-
+/**
+* This is what we were gonna get to but rn you don't gotta db
+*
+*
 const mysql = require('mysql');
 
 const con = mysql.createConnection({
@@ -23,8 +26,17 @@ todoDB.dao.create = function () {
     return todoDB.dao.ammended();
 };
 todoDB.api.create = function () {};
+*/
 
-save = function() {
-    
+// this was all i was looking for rn
+todoList = [];
+save = function(todo) {
+  todoList.push(todo)
+  return Promise.resolve(todoList);
 };
+get = function() {
+  return Promise.resolve(todoList);
+}
+
+module.exports = { save, get };
 
