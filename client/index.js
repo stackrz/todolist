@@ -21,7 +21,7 @@ document.querySelector('button').addEventListener('click', (e) => {
     clearInput();
 });
 
-document.getElementById('li').target.style.textDecoration = 'line-through dotted red';
+document.getElementById('li').style.textDecoration = 'line-through dotted red';
 
 
 todoApp.addEventListener('click', (e) => {
