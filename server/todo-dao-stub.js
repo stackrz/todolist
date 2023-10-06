@@ -29,7 +29,7 @@ todoDB.api.create = function () {};
 */
 
 // this was all i was looking for rn
-todoList = [];
+todoList = ['errands',];
 save = function(todo) {
   todoList.push(todo)
   return Promise.resolve(todoList);

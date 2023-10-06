@@ -19,7 +19,9 @@ document.querySelector('button').addEventListener('click', (e) => {
     e.preventDefault(); 
     addInput(getInputValue()); 
     clearInput();
-});
+      }
+   )
+;
 
 document.getElementById('li').style.textDecoration = 'line-through dotted red';
 
@@ -34,3 +36,6 @@ todoApp.addEventListener('click', (e) => {
 
    console.log(e.target)
 });
+
+
+//ALL APPS ONLINE = GET POST PUT DELETE
