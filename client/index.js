@@ -1,32 +1,45 @@
 todoApp = document.querySelector('UL');
 
 
+
 function addInput(content) {
-    addedItem = document.createElement('li');
-    addedItem.append(content);
-    todoApp.appendChild(addedItem);
+  addedItem = document.createElement('li');
+  addedItem.append(content.text);
+  todoApp.appendChild(addedItem);
 }
 
 function getInputValue() {
-  return  document.querySelector ('input').value
+  const text =  document.querySelector('input').value;
+ return {
+    text,
+    isDone : false
+ };                                // return  document.querySelector ('input').value
 }
 
 function clearInput() {
-    document.querySelector('input').value = ''
+  document.querySelector('input').value = ''
 }
 
 document.querySelector('button').addEventListener('click', (e) => {
     e.preventDefault(); 
     addInput(getInputValue()); 
+    
+    fetch('/api/todo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(getInputValue())
+    });
     clearInput();
       }
    )
 ;
 
-document.getElementById('li').style.textDecoration = 'line-through dotted red';
 
 
 todoApp.addEventListener('click', (e) => {
+  
   if (e.target.style.textDecoration == 'line-through') {
       e.target.style.remove.textDecoration = 'none'
   } else {
@@ -37,5 +50,8 @@ todoApp.addEventListener('click', (e) => {
    console.log(e.target)
 });
 
+fetch('/api/todo')
+    .then(res => res.json())
+    .then(todos => todos.map(addInput));
 
 //ALL APPS ONLINE = GET POST PUT DELETE
