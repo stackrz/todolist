@@ -1,6 +1,6 @@
 todoApp = document.querySelector('UL');
 
-
+const abut = todoApp.addEventListener();
 
 function addInput(content) {
   addedItem = document.createElement('li');
@@ -10,10 +10,12 @@ function addInput(content) {
 
 function getInputValue() {
   const text =  document.querySelector('input').value;
- return {
-    text,
-    isDone : false
- };                                // return  document.querySelector ('input').value
+ if (abut() === true &&) { 
+  return textDecoration
+}else (
+  return  document.querySelector ('input').value
+       );
+ };                                // 
 }
 
 function clearInput() {
@@ -38,7 +40,7 @@ document.querySelector('button').addEventListener('click', (e) => {
 
 
 
-todoApp.addEventListener('click', (e) => {
+abut('click', (e) => {
   
   if (e.target.style.textDecoration == 'line-through') {
       e.target.style.remove.textDecoration = 'none'
