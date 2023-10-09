@@ -5,12 +5,12 @@ function createTables(db) {
     create table todos (
       todo_id primary key not null,
       content text not null,
-      is_done text not null,
+      is_done text not null
     );
 
-    insert into todos (content, is_done)
-      values ('learn SQL', 'false')
-      values ('cook dope', 'false');
+    insert into todos (todo_id, content, is_done)
+      values (1, 'learn SQL', 'false'),
+             (2, 'cook dope', 'false');
   `);
 }
 
