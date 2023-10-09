@@ -1,4 +1,8 @@
-var sqlite3 = require('sqlite3');
+const fs = require('fs');
+const path = require('path');
+const sqlite3 = require('sqlite3');
+
+DB_FILE = path.join(__dirname, './data.db');
 
 function createTables(db) {
   db.exec(`
@@ -15,23 +19,23 @@ function createTables(db) {
 }
 
 function createDatabase() {
-  const newdb = new sqlite3.Database('todoapp.db', (err) => {
+  const newdb = new sqlite3.Database(DB_FILE, (err) => {
     if (err) {
       console.log("Getting error " + err);
       exit(1);
     }
     createTables(newdb);
   });
+
+  return newdb;
 }
 
-new sqlite3.Database('./mcu.db', sqlite3.OPEN_READWRITE,  (err) => {
-  if (err && err.code == "SQLITE_CANTOPEN") {
-    createDatabase();
-    return;
-  } else if (err) {
-    console.log("Getting error " + err);
-    exit(1);
+function createDbConnection() {
+  if (fs.existsSync(DB_FILE)) {
+    return new sqlite3.Database(DB_FILE);
+  } else {
+    return createDatabase();
   }
-  runQueries(db);
-});
+}
 
+module.exports = createDbConnection();
