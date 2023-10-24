@@ -1,0 +1,1 @@
+<tr><td><span style="{{#isDone}}text-decoration: line-through;{{/isDone}}">{{content}}</span></td></tr>

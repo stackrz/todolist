@@ -7,9 +7,9 @@ DB_FILE = path.join(__dirname, './data.db');
 function createTables(db) {
   db.exec(`
     create table todos (
-      todo_id primary key not null,
-      content text not null,
-      is_done text not null
+      todo_id INTEGER PRIMARY KEY,
+      content TEXT NOT NULL,
+      is_done TEXT NOT NULL 
     );
 
     insert into todos (todo_id, content, is_done)
